@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Hello, World!</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b1020;
+      color: #f6f7ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 15% 20%, #42277a88, transparent 42%),
+        radial-gradient(ellipse at 85% 80%, #075b7480, transparent 40%),
+        #0b1020;
+    }
+
+    .glow {
+      position: fixed;
+      width: 24rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #a855f7;
+      filter: blur(110px);
+      opacity: .16;
+      pointer-events: none;
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+
+    .glow.two {
+      width: 19rem;
+      background: #22d3ee;
+      opacity: .13;
+      animation-delay: -5s;
+      animation-duration: 15s;
+    }
+
+    main {
+      position: relative;
+      width: min(90vw, 720px);
+      padding: clamp(2.5rem, 8vw, 5.5rem) clamp(1.5rem, 7vw, 5rem);
+      text-align: center;
+      border: 1px solid #ffffff20;
+      border-radius: 30px;
+      background: linear-gradient(145deg, #ffffff12, #ffffff05);
+      box-shadow: 0 30px 100px #0008, inset 0 1px #ffffff20;
+      backdrop-filter: blur(18px);
+      animation: rise .8s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      margin: 0 0 1.5rem;
+      padding: .55rem .9rem;
+      border: 1px solid #ffffff1b;
+      border-radius: 999px;
+      color: #c7c8dc;
+      background: #ffffff08;
+      font-size: .76rem;
+      font-weight: 650;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .sparkle { color: #f9c97c; font-size: 1rem; }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.5rem, 12vw, 7.5rem);
+      line-height: .96;
+      letter-spacing: -.075em;
+      font-weight: 800;
+    }
+
+    h1 span {
+      display: block;
+      padding: .08em 0 .13em;
+      background: linear-gradient(100deg, #fff 8%, #c4b5fd 52%, #67e8f9 95%);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .subtitle {
+      max-width: 32rem;
+      margin: 1.5rem auto 0;
+      color: #b7bad0;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      line-height: 1.7;
+    }
+
+    button {
+      margin-top: 2.25rem;
+      padding: .95rem 1.35rem;
+      border: 0;
+      border-radius: 14px;
+      color: #111326;
+      background: linear-gradient(110deg, #ddd6fe, #a5f3fc);
+      font: inherit;
+      font-weight: 750;
+      cursor: pointer;
+      box-shadow: 0 8px 30px #67e8f944;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    button:hover { transform: translateY(-3px); box-shadow: 0 12px 36px #67e8f966; }
+    button:active { transform: translateY(-1px); }
+    button:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+    .footer {
+      margin: 2rem 0 0;
+      color: #777d98;
+      font-size: .8rem;
+      letter-spacing: .04em;
+    }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(18px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes drift { from { transform: translate(-18vw, -12vh); } to { transform: translate(32vw, 22vh); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="glow two" aria-hidden="true"></div>
+  <main>
+    <p class="eyebrow"><span class="sparkle" aria-hidden="true">✦</span> A little something special</p>
+    <h1>Hello,<span>World!</span></h1>
+    <p class="subtitle" id="message">A classic first line, dressed up for the occasion. The web is yours to create.</p>
+    <button type="button" id="hello-button">Say hello <span aria-hidden="true">→</span></button>
+    <p class="footer">Made with curiosity &amp; a little bit of code</p>
+  </main>
+  <script>
+    const button = document.querySelector("#hello-button");
+    const message = document.querySelector("#message");
+    button.addEventListener("click", () => {
+      message.textContent = "Hello right back at you! Here's to making something wonderful.";
+      button.innerHTML = 'Hello! <span aria-hidden="true">✦</span>';
+    });
+  </script>
+</body>
+</html>
