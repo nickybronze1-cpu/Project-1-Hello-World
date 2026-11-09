@@ -15,6 +15,24 @@
 
     * { box-sizing: border-box; }
 
+    nav {
+      position: fixed;
+      z-index: 2;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: .35rem;
+      padding: .4rem;
+      border: 1px solid #ffffff20;
+      border-radius: 999px;
+      background: #10162bc9;
+      backdrop-filter: blur(14px);
+    }
+
+    nav a { padding: .65rem 1rem; border-radius: 999px; color: #b7bad0; text-decoration: none; font-size: .9rem; transition: .2s; }
+    nav a:hover, nav a[aria-current="page"] { color: #fff; background: #ffffff15; }
+
     body {
       min-height: 100vh;
       margin: 0;
@@ -139,6 +157,11 @@
 <body>
   <div class="glow" aria-hidden="true"></div>
   <div class="glow two" aria-hidden="true"></div>
+  <nav aria-label="Main navigation">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <main>
     <p class="eyebrow"><span class="sparkle" aria-hidden="true">✦</span> A little something special</p>
     <h1>Hello,<span>World!</span></h1>
