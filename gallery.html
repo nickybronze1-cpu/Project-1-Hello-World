@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Gallery — Hello, World!</title>
+  <style>
+    :root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #0b1020; color: #f6f7ff; }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; padding: 6rem 1rem 3rem; background: radial-gradient(ellipse at 15% 20%, #42277a88, transparent 42%), radial-gradient(ellipse at 85% 80%, #075b7480, transparent 40%), #0b1020; }
+    nav { position: fixed; z-index: 2; top: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: .35rem; padding: .4rem; border: 1px solid #ffffff20; border-radius: 999px; background: #10162be8; backdrop-filter: blur(14px); }
+    nav a { padding: .65rem 1rem; border-radius: 999px; color: #b7bad0; text-decoration: none; font-size: .9rem; transition: .2s; }
+    nav a:hover, nav a[aria-current="page"] { color: #fff; background: #ffffff15; }
+    main { width: min(100%, 1050px); margin: 0 auto; animation: rise .7s both; }
+    header { margin: 0 0 2rem; padding: clamp(1.8rem, 5vw, 3.5rem); border: 1px solid #ffffff20; border-radius: 28px; background: linear-gradient(145deg, #ffffff12, #ffffff05); box-shadow: 0 30px 100px #0006, inset 0 1px #ffffff20; backdrop-filter: blur(18px); }
+    .eyebrow { margin: 0 0 .8rem; color: #a5f3fc; font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(3.2rem, 9vw, 6rem); line-height: 1; letter-spacing: -.07em; }
+    h1 span { background: linear-gradient(100deg, #c4b5fd, #67e8f9); color: transparent; background-clip: text; -webkit-background-clip: text; }
+    header p:last-child { max-width: 40rem; margin: 1rem 0 0; color: #b7bad0; font-size: 1.05rem; line-height: 1.7; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    figure { margin: 0; overflow: hidden; border: 1px solid #ffffff20; border-radius: 22px; background: #ffffff08; box-shadow: 0 18px 50px #0003; transition: transform .25s ease, border-color .25s ease; }
+    figure:hover { transform: translateY(-5px); border-color: #a5f3fc66; }
+    .art { position: relative; display: grid; min-height: 220px; place-items: center; overflow: hidden; isolation: isolate; }
+    .art::before, .art::after { position: absolute; z-index: -1; content: ""; border-radius: 50%; filter: blur(1px); }
+    .art::before { width: 160px; aspect-ratio: 1; background: #ffffff30; box-shadow: 0 0 70px #ffffff30; }
+    .art::after { width: 210px; aspect-ratio: 1; border: 1px solid #ffffff66; transform: rotate(-25deg) scaleY(.35); }
+    .art span { font-size: 3rem; filter: drop-shadow(0 8px 18px #0005); }
+    .aurora { background: radial-gradient(ellipse at 30% 85%, #22d3eeaa, transparent 42%), linear-gradient(145deg, #172554, #312e81 55%, #111827); }
+    .sunset { background: radial-gradient(circle at 50% 48%, #fde68a 0 8%, #fb923c 9% 18%, transparent 19%), linear-gradient(160deg, #4c1d95, #be185d 55%, #f97316); }
+    .garden { background: radial-gradient(ellipse at 50% 100%, #4ade80aa, transparent 40%), linear-gradient(145deg, #052e2b, #065f46 50%, #164e63); }
+    .dream { background: radial-gradient(circle at 50% 50%, #e9d5ff 0 4%, #a855f7 5% 18%, transparent 19%), linear-gradient(145deg, #1e1b4b, #581c87, #312e81); }
+    .ocean { background: radial-gradient(ellipse at 70% 35%, #67e8f9aa, transparent 28%), linear-gradient(160deg, #082f49, #0369a1 52%, #164e63); }
+    .orbit { background: radial-gradient(circle at 50% 50%, #fef3c7 0 8%, #f59e0b 9% 15%, transparent 16%), linear-gradient(145deg, #111827, #312e81 55%, #701a75); }
+    figcaption { padding: 1rem 1.1rem 1.15rem; }
+    figcaption strong { color: #f0eaff; }
+    figcaption p { margin: .35rem 0 0; color: #aeb2ca; font-size: .9rem; line-height: 1.5; }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 760px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .art { min-height: 190px; } }
+    @media (max-width: 500px) { .grid { grid-template-columns: 1fr; } .art { min-height: 230px; } nav { gap: 0; } nav a { padding: .6rem .75rem; font-size: .82rem; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="gallery.html" aria-current="page">Gallery</a><a href="contact.html">Contact</a></nav>
+  <main>
+    <header>
+      <p class="eyebrow">A collection of little ideas</p>
+      <h1>The <span>Gallery.</span></h1>
+      <p>A handful of color, light, and imagination—made with CSS, right here in the page.</p>
+    </header>
+    <section class="grid" aria-label="Abstract artwork gallery">
+      <figure><div class="art aurora" role="img" aria-label="Blue and violet aurora-inspired abstract art"><span aria-hidden="true">✦</span></div><figcaption><strong>Midnight Aurora</strong><p>Light dancing across a quiet sky.</p></figcaption></figure>
+      <figure><div class="art sunset" role="img" aria-label="Warm orange and pink sunset abstract art"><span aria-hidden="true">☼</span></div><figcaption><strong>Last Light</strong><p>A little warmth at the end of the day.</p></figcaption></figure>
+      <figure><div class="art garden" role="img" aria-label="Emerald green garden-inspired abstract art"><span aria-hidden="true">❋</span></div><figcaption><strong>Secret Garden</strong><p>Somewhere quiet, everything grows.</p></figcaption></figure>
+      <figure><div class="art dream" role="img" aria-label="Purple and lilac dreamy abstract art"><span aria-hidden="true">✧</span></div><figcaption><strong>Soft Focus</strong><p>A daydream in shades of violet.</p></figcaption></figure>
+      <figure><div class="art ocean" role="img" aria-label="Deep blue ocean-inspired abstract art"><span aria-hidden="true">≈</span></div><figcaption><strong>Blue Current</strong><p>Follow the shape of the water.</p></figcaption></figure>
+      <figure><div class="art orbit" role="img" aria-label="Golden planet with orbital rings against a night sky"><span aria-hidden="true">◉</span></div><figcaption><strong>Little Orbit</strong><p>A tiny world with room to wander.</p></figcaption></figure>
+    </section>
+  </main>
+</body>
+</html>
